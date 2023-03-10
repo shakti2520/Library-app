@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Library App</string>
+    <string name="user_log_in">USER LOG IN</string>
+    <string name="user_id">User ID</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="new_user_sign_up">New User ? Sign up</string>
+
+
+    <string-array name="list1">
+        <item>"Select Book Category"</item>
+        <item>"CSE"</item>
+        <item>"ECE"</item>
+        <item>"Magazine"</item>
+        <item>"Novel"</item>
+        <item>"Mathematics"</item>
+        <item>"GATE"</item>
+        <item>"Business"</item>
+        <item>"Others"</item>
+
+
+    </string-array>
+
+</resources>

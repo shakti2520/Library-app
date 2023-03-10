@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1023289671986",
+    "project_id": "libraryfb-62b5e",
+    "storage_bucket": "libraryfb-62b5e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023289671986:android:623bfc97ddfa001db4d72b",
+        "android_client_info": {
+          "package_name": "com.iiitnr.libraryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023289671986-3s4n1u0br2tae6qgsqgndo45d9efpbu4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmGGyh6fuWE_jnjxzVgZN4wI4EZ9tmwkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023289671986-3s4n1u0br2tae6qgsqgndo45d9efpbu4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
