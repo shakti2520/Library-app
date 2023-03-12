@@ -79,7 +79,8 @@ public class SearchBookSetNew extends AppCompatActivity{
 
     private boolean verifyAuth()
     {
-        String b=editAuth.getEditText().getText().toString().trim();
+//        String b=editAuth.getEditText().getText().toString().trim();
+        String b ="";
         if(b.isEmpty())
         {
             return false;
@@ -116,7 +117,7 @@ public class SearchBookSetNew extends AppCompatActivity{
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference collectionRef = db.collection("Books");
         txtTitle=(AutoCompleteTextView)findViewById(R.id.txtTitle);
-        txtAuth=(AutoCompleteTextView)findViewById(R.id.txtAuth);
+//        txtAuth=(AutoCompleteTextView)findViewById(R.id.txtAuth);
         txtPub=(AutoCompleteTextView)findViewById(R.id.txtPub);
         List<String> titleArray = new ArrayList<>();
         List<String> authArray = new ArrayList<>();
@@ -141,8 +142,8 @@ public class SearchBookSetNew extends AppCompatActivity{
                 txtTitle.setThreshold(1);
                 ArrayAdapter adapterauth = new
                         ArrayAdapter(this,android.R.layout.simple_list_item_1,authArray );
-                txtAuth.setAdapter(adapterauth);
-                txtAuth.setThreshold(1);
+//                txtAuth.setAdapter(adapterauth);
+//                txtAuth.setThreshold(1);
                 ArrayAdapter adapterpub = new
                         ArrayAdapter(this,android.R.layout.simple_list_item_1,pubArray );
                 txtPub.setAdapter(adapterpub);

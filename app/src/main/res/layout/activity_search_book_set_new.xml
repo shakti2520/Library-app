@@ -45,21 +45,21 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/editAuth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp">
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:id="@+id/editAuth"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="30dp">-->
 
 
-                <AutoCompleteTextView
-                    android:id="@+id/txtAuth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Author"
-                    android:inputType="textAutoComplete" />
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/txtAuth"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Author"-->
+<!--                    android:inputType="textAutoComplete" />-->
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
 
             <com.google.android.material.textfield.TextInputLayout
