@@ -174,7 +174,6 @@ public class SearchBookSetNew extends AppCompatActivity{
                     intent.putExtra("id",1);
                     intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
                     startActivity(intent);
-
                 }
                 else if(verifyTitle()&&!checkBox.isChecked())
                 {

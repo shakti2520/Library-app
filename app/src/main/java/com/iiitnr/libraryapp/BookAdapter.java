@@ -35,7 +35,7 @@ public class BookAdapter extends FirestoreRecyclerAdapter<Book, BookAdapter.Book
 //        holder.bookAvailable.setText("Available : "+String.valueOf(model.getAvailable()));
         holder.bookName.setText("Title : "+model.getTitle());
         holder.bookTotal.setText("Total : "+String.valueOf(model.getTotal()));
-        System.out.println("\n\n********************************"+model.getId()+" "+model.getTitle()+"  "+mode+"************************************\n\n");
+        holder.bookAuthor.setText("Author : "+model.getAuthor());
 
           if((!model.getTitle().contains(key))&&(mode==1))
             {
@@ -60,7 +60,7 @@ public class BookAdapter extends FirestoreRecyclerAdapter<Book, BookAdapter.Book
     class Book extends RecyclerView.ViewHolder
     {
 
-        TextView bookName,bookId,bookPublisher,bookTotal;
+        TextView bookName,bookId,bookPublisher,bookTotal, bookAuthor;
 //        TextView bookAvailable;
 
 
@@ -71,6 +71,8 @@ public class BookAdapter extends FirestoreRecyclerAdapter<Book, BookAdapter.Book
             bookName=itemView.findViewById(R.id.bookName);
             bookPublisher=itemView.findViewById(R.id.bookPublisher);
             bookTotal=itemView.findViewById(R.id.bookTotal);
+            bookAuthor=itemView.findViewById(R.id.bookAuthor);
+
         }
 
         public void itemView(Object o) {

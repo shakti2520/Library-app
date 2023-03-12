@@ -5,7 +5,18 @@ import java.util.List;
 
 public class Book {
 
-    private String Title, Publisher;
+    private String Title;
+    private String Publisher;
+    private String Author;
+    public String getAuthor() {
+        return Author;
+    }
+
+    public void setAuthor(String author) {
+        Author = author;
+    }
+
+
     private int Total = 0, available = 0, id;
     private List<Integer> unit = new ArrayList<Integer>();
 

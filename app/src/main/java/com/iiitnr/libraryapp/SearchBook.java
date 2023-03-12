@@ -17,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -65,21 +64,26 @@ public class SearchBook extends AppCompatActivity {
 
 
         Intent intent=getIntent();
-        System.out.println("=====================\n===========================\n========================="+intent.getIntExtra("bid",0)+"  ");
         switch(intent.getIntExtra("id",0))
         {
             case 1:{
                 mode=0;
                 key=intent.getStringExtra("btitle");
 
-                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
+                query=db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle"))
+                        .whereLessThan("Title", intent.getStringExtra("btitle") + '\uf8ff');
+//                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
+
                 System.out.println("========== 1 ==========");
                 break;
             }
             case 2:{
                 mode=0;
                 key=intent.getStringExtra("btitle");
-                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle"))
+                        .whereLessThanOrEqualTo("Title", intent.getStringExtra("btitle") + '\uf8ff');
+
+//                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
                 System.out.println("========== 2 ==========");
                 break;
 
@@ -87,7 +91,9 @@ public class SearchBook extends AppCompatActivity {
             case 3:{
                 mode=1;
                 key=intent.getStringExtra("bauth");
-                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
+//                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth"))
+                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth") + '\uf8ff');
                 System.out.println("========== 3 ==========");
 //                .whereGreaterThan("available",0)
                 break;
@@ -97,8 +103,10 @@ public class SearchBook extends AppCompatActivity {
                 mode=1;
 
                 key=intent.getStringExtra("bauth");
-                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
-                System.out.println("========== 4 ==========");
+//                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth"))
+                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth") + '\uf8ff');
+                System.out.println("========== 4 ========== "+key+ " "+query);
                 break;
             }
             case 5:{
@@ -106,7 +114,9 @@ public class SearchBook extends AppCompatActivity {
                 mode=1;
                 key=intent.getStringExtra("bpub");
 //                query=db.collection("Books").whereGreaterThan("available",0);
-                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
+//                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub"))
+                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub") + '\uf8ff');
 
                 break;
             }
@@ -114,8 +124,9 @@ public class SearchBook extends AppCompatActivity {
                 mode=1;
 //                key=intent.getStringExtra("btitle");
 //                query=db.collection("Books");
-                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
-
+//                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub"))
+                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub") + '\uf8ff');
                 break;
 
             }
@@ -161,13 +172,14 @@ public class SearchBook extends AppCompatActivity {
             }
         });
         */
+        System.out.println("\n\n==========  ========== "+key+ " "+query);
 
-            FirestoreRecyclerOptions options = new FirestoreRecyclerOptions.Builder<Book>().setQuery(query, Book.class).build();
+        FirestoreRecyclerOptions options = new FirestoreRecyclerOptions.Builder<Book>().setQuery(query, Book.class).build();
             adapter = new BookAdapter(options, key.toUpperCase(), mode);
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycle);
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(adapter);
-        adapter.startListening();
+            adapter.startListening();
             progressDialog.cancel();
 
     }
