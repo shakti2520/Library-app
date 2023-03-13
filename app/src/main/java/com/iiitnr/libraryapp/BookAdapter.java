@@ -30,7 +30,7 @@ public class BookAdapter extends FirestoreRecyclerAdapter<Book, BookAdapter.Book
     @Override
     protected void onBindViewHolder(@NonNull Book holder, int position, @NonNull com.iiitnr.libraryapp.Book model) {
 
-        holder.bookId.setText("ID : "+String.valueOf(model.getId()));
+        holder.bookId.setText("ISBN : "+String.valueOf(model.getISBN()));
         holder.bookPublisher.setText("Publisher : "+model.getPublisher());
 //        holder.bookAvailable.setText("Available : "+String.valueOf(model.getAvailable()));
         holder.bookName.setText("Title : "+model.getTitle());

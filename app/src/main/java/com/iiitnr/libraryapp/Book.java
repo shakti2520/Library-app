@@ -17,18 +17,22 @@ public class Book {
     }
 
 
-    private int Total = 0, available = 0, id;
+    private int Total = 0;
+    private int available = 0;
+
+
+    private String ISBN;
     private List<Integer> unit = new ArrayList<Integer>();
 
 
     public Book() {
     }
 
-    public Book(String Title, String Publisher, int Total, int id) {
+    public Book(String Title, String Publisher, int Total, String ISBN) {
         this.Title = Title;
         this.Publisher = Publisher;
         this.Total = Total;
-        this.id = id;
+        this.ISBN = ISBN;
 //        this.available=Total;
     }
 
@@ -64,13 +68,22 @@ public class Book {
         this.available = available;
     }
 
-    public int getId() {
-        return id;
+
+    public String  getISBN() {
+        return ISBN;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
+
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public List<Integer> getUnit() {
         return unit;

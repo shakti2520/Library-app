@@ -148,7 +148,8 @@ public class AdminAddBook extends AppCompatActivity implements View.OnClickListe
                     {    String id=editBid.getEditText().getText().toString().trim();
                         String title=editTitle.getEditText().getText().toString().trim();
                         String units=editUnits.getEditText().getText().toString().trim();
-                        int id1=Integer.parseInt(id),unit1=Integer.parseInt(units);
+                        String id1=id;
+                        int unit1=Integer.parseInt(units);
                         Book b=new Book(title.toUpperCase(),type,unit1,id1);
                         db.document("Book/"+id1).set(b).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override

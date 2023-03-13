@@ -240,7 +240,7 @@ public class AdminIssueBook extends AppCompatActivity {
                         l1.add(Integer.parseInt(editBid3.getEditText().getText().toString().trim()) % 100);
                         B1.setUnit(l1);
 
-                        db.document("Book/" + B1.getId()).set(B1).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        db.document("Book/" + B1.getISBN()).set(B1).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {

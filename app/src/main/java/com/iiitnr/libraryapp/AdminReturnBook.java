@@ -194,7 +194,7 @@ public class AdminReturnBook extends AppCompatActivity {
                         l1.remove(i);
                         B.setUnit(l1);
 
-                        db.document("Book/" + B.getId()).set(B).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        db.document("Book/" + B.getISBN()).set(B).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
