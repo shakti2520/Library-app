@@ -70,8 +70,8 @@ public class SearchBook extends AppCompatActivity {
                 mode=0;
                 key=intent.getStringExtra("btitle");
 
-                query=db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle"))
-                        .whereLessThan("Title", intent.getStringExtra("btitle") + '\uf8ff');
+                query=db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle").toUpperCase())
+                        .whereLessThan("Title", intent.getStringExtra("btitle").toUpperCase() + '\uf8ff');
 //                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
 
                 System.out.println("========== 1 ==========");
@@ -80,8 +80,8 @@ public class SearchBook extends AppCompatActivity {
             case 2:{
                 mode=0;
                 key=intent.getStringExtra("btitle");
-                query = db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle"))
-                        .whereLessThanOrEqualTo("Title", intent.getStringExtra("btitle") + '\uf8ff');
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Title", intent.getStringExtra("btitle").toUpperCase())
+                        .whereLessThanOrEqualTo("Title", intent.getStringExtra("btitle").toUpperCase() + '\uf8ff');
 
 //                query=db.collection("Books").whereEqualTo("Title",intent.getStringExtra("btitle"));
                 System.out.println("========== 2 ==========");
@@ -92,8 +92,8 @@ public class SearchBook extends AppCompatActivity {
                 mode=1;
                 key=intent.getStringExtra("bauth");
 //                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
-                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth"))
-                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth") + '\uf8ff');
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth").toUpperCase())
+                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth").toUpperCase() + '\uf8ff');
                 System.out.println("========== 3 ==========");
 //                .whereGreaterThan("available",0)
                 break;
@@ -104,8 +104,8 @@ public class SearchBook extends AppCompatActivity {
 
                 key=intent.getStringExtra("bauth");
 //                query=db.collection("Books").whereEqualTo("Author",intent.getStringExtra("bauth"));
-                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth"))
-                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth") + '\uf8ff');
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Author", intent.getStringExtra("bauth").toUpperCase())
+                        .whereLessThanOrEqualTo("Author", intent.getStringExtra("bauth").toUpperCase() + '\uf8ff');
                 System.out.println("========== 4 ========== "+key+ " "+query);
                 break;
             }
@@ -115,8 +115,8 @@ public class SearchBook extends AppCompatActivity {
                 key=intent.getStringExtra("bpub");
 //                query=db.collection("Books").whereGreaterThan("available",0);
 //                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
-                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub"))
-                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub") + '\uf8ff');
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub").toUpperCase())
+                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub").toUpperCase() + '\uf8ff');
 
                 break;
             }
@@ -125,8 +125,8 @@ public class SearchBook extends AppCompatActivity {
 //                key=intent.getStringExtra("btitle");
 //                query=db.collection("Books");
 //                query=db.collection("Books").whereEqualTo("Publisher",intent.getStringExtra("bpub"));
-                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub"))
-                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub") + '\uf8ff');
+                query = db.collection("Books").whereGreaterThanOrEqualTo("Publisher", intent.getStringExtra("bpub").toUpperCase())
+                        .whereLessThanOrEqualTo("Publisher", intent.getStringExtra("bpub").toUpperCase() + '\uf8ff');
                 break;
 
             }
