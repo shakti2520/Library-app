@@ -75,7 +75,8 @@
                 android:id="@+id/onlyAvailable"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Show only available books"/>
+                android:text="Show only available books"
+                tools:visibility="gone"/>
 
 
             <Button

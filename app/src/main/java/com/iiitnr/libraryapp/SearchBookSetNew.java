@@ -77,19 +77,18 @@ public class SearchBookSetNew extends AppCompatActivity{
         }
     }
 
-    private boolean verifyAuth()
-    {
+//    private boolean verifyAuth()
+//    {
 //        String b=editAuth.getEditText().getText().toString().trim();
-        String b ="";
-        if(b.isEmpty())
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
+//        if(b.isEmpty())
+//        {
+//            return false;
+//        }
+//        else
+//        {
+//            return true;
+//        }
+//    }
 
     private boolean verifyPub()
     {
@@ -110,7 +109,7 @@ public class SearchBookSetNew extends AppCompatActivity{
         setContentView(R.layout.activity_search_book_set_new);
         FirebaseApp.initializeApp(this);
         editTitle3=(TextInputLayout)findViewById(R.id.editTitle3);
-        editAuth=(TextInputLayout) findViewById(R.id.editAuth);
+//        editAuth=(TextInputLayout) findViewById(R.id.editAuth);
         editPub=(TextInputLayout) findViewById(R.id.editPub);
         button3=(Button)findViewById(R.id.button3);
         checkBox=(CheckBox)findViewById(R.id.onlyAvailable);
@@ -161,45 +160,48 @@ public class SearchBookSetNew extends AppCompatActivity{
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if(!(verifyAuth()|verifyTitle()|verifyPub()))
+            System.out.println(verifyPub()+"    "+verifyTitle());
+                if(!(verifyTitle()|verifyPub()))
                 {
                     Toast.makeText(SearchBookSetNew.this, "Select at least parameter !", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Intent intent=new Intent(getApplicationContext(),SearchBook.class);
 
-                if(verifyTitle()&&checkBox.isChecked())
+                if(verifyTitle()&&verifyPub()&&checkBox.isChecked())
                 {
 
                     intent.putExtra("id",1);
                     intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
-                    startActivity(intent);
+                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);startActivity(intent);
                 }
-                else if(verifyTitle()&&!checkBox.isChecked())
+                else if(verifyTitle()&&verifyPub()&&!checkBox.isChecked())
                 {
-
+//                  IGNORE FOR NOW
                     intent.putExtra("id",2);
                     intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
+                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+
                     startActivity(intent);
 
                 }
-                else if(verifyAuth()&&checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",3);
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    startActivity(intent);
-
-                }
-                else if(verifyAuth()&&!checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",4);
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    startActivity(intent);
-
-                }
+//                else if(verifyAuth()&&checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",3);
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    startActivity(intent);
+//
+//                }
+//                else if(verifyAuth()&&!checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",4);
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    startActivity(intent);
+//
+//                }
                 else if(verifyPub()&&checkBox.isChecked())
                 {
 
@@ -216,66 +218,76 @@ public class SearchBookSetNew extends AppCompatActivity{
                     startActivity(intent);
 
                 }
-                else if(verifyTitle()&&verifyAuth()&&checkBox.isChecked())
+//                else if(verifyTitle()&&verifyAuth()&&checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",7);
+//                    intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
+//                    startActivity(intent);
+//
+//                }
+//                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",8);
+//                    intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
+//                    startActivity(intent);
+//
+//                }
+                else if(verifyTitle()&&!checkBox.isChecked())
                 {
 
-                    intent.putExtra("id",7);
+                    intent.putExtra("id",3);
                     intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
+//                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
                     startActivity(intent);
 
                 }
-                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
+                else if(verifyTitle()&&checkBox.isChecked())
                 {
 
-                    intent.putExtra("id",8);
+                    intent.putExtra("id",4);
                     intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
+//                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
                     startActivity(intent);
 
                 }
-                else if(verifyTitle()&&verifyPub()&&checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",9);
-                    intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
-                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
-                    startActivity(intent);
-
-                }
-                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",10);
-                    intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
-                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
-                    startActivity(intent);
-
-                }
-                else if(verifyAuth()&&verifyPub()&&checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",11);
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
-                    startActivity(intent);
-
-                }
-                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
-                {
-
-                    intent.putExtra("id",12);
-                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
-                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
-                    intent.putExtra("btype",type);
-                    startActivity(intent);
-
-                }
+//                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",10);
+//                    intent.putExtra("btitle",editTitle3.getEditText().getText().toString().trim());
+//                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
+//                    startActivity(intent);
+//
+//                }
+//                else if(verifyAuth()&&verifyPub()&&checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",11);
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
+//                    startActivity(intent);
+//
+//                }
+//                else if(verifyTitle()&&verifyAuth()&&!checkBox.isChecked())
+//                {
+//
+//                    intent.putExtra("id",12);
+//                    intent.putExtra("bauth",editAuth.getEditText().getText().toString().trim());
+//                    intent.putExtra("bpub",editPub.getEditText().getText().toString().trim());
+//                    intent.putExtra("btype",type);
+//                    startActivity(intent);
+//
+//                }
 
             }
         });
